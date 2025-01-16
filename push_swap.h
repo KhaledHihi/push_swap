@@ -12,9 +12,11 @@ typedef struct s_stack
 
 }					t_stack;
 
+void				push_swap(t_stack **a, t_stack **b);
+int					*list_to_arr(t_stack *lst);
 void				sort_two(t_stack *a);
-void	sort_five(t_stack **a, t_stack **b);
-void	sort_three(t_stack **a);
+void				sort_five(t_stack **a, t_stack **b);
+void				sort_three(t_stack **a);
 int					ft_duplicate(t_stack	*lst);
 int					ft_check(char *str);
 void				ft_error(t_stack **stack);

@@ -26,12 +26,17 @@ int	*list_to_arr(t_stack *lst)
 	int	*arr;
 
 	i = 0;
+	if (!lst)
+		return (NULL);
 	len = ft_lstsize(lst);
 	arr = malloc(sizeof(int) * len);
+	if (!arr)
+		return (NULL);
 	while (lst)
 	{
 		arr[i] = lst->nbr;
 		lst = lst->next;
+		i++;
 	}
 	sort_int_tab(arr, len);
 	return (arr);

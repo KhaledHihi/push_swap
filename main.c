@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 18:03:36 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/14 12:30:46 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/16 21:07:49 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	arguments(int ac, char *av[], t_stack **a)
 		while (split_args[j])
 		{
 			if (make_list(split_args[j], a) < 0)
-				return (ft_error(a), ft_free_split(split_args), write(2,
-						"error\n", 6), exit(1));
+				return (ft_error(a), ft_free_split(split_args),
+				write(2, "error\n", 6), exit(1));
 			j++;
 		}
 		ft_free_split(split_args);
@@ -70,7 +70,8 @@ int	main(int ac, char *av[])
 	arguments(ac, av, &a);
 	if (ft_lstsize(a) <= 5)
 		sort_five(&a, &b);
-	// else
-
+	else
+		push_swap(&a, &b);
 	return(print_node(a), ft_error(&a), ft_error(&b), 0);
 }
+

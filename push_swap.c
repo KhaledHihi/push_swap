@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 22:37:46 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/16 22:27:07 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/17 11:24:07 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,68 +17,66 @@ void	check_b(t_stack **b)
 	if (*b && (*b)->next && (*b)->nbr < (*b)->next->nbr)
 		sb(b);
 }
-int	max_index(t_stack *b)
+int max_index(t_stack **b)
 {
-	int p = 0;
-	t_stack *move = b;
-	int max = b->nbr;
-	while(move)
-	{
-		if(move->nbr > max)
-		{
-			max = move->nbr;
-		}
-		move = move->next;
-	}
-	move = b;
-	while(move)
-	{
-		if(move->nbr == max)
-			break;
-		p++;
-	}
-	return (p);
+    t_stack *move = *b;
+    int max = move->nbr;
+    int max_pos = 0;
+    int current_pos = 0;
+
+    while (move)
+    {
+        if (move->nbr > max)
+        {
+            max = move->nbr;
+            max_pos = current_pos;
+        }
+        move = move->next;
+        current_pos++;
+    }
+
+    return max_pos;
 }
+
 
 void push_to_a(t_stack **a, t_stack **b)
 {
-    int list_len;
-    t_stack *move;
-	int pos;
+	int list_len = ft_lstsize(*b);
     if (!a || !b || !*b)
         return;
-
-    list_len = ft_lstsize(*b);
+    int p;
 
     while (list_len > 0)
     {
-		pos = max_index(*b);
-		if (pos <= list_len / 2)
+        p = max_index(b);
+
+        if (p <= list_len / 2)
         {
-            while (pos-- > 0)
+            while (p-- > 0)
                 rb(b);
         }
         else
         {
-            pos = list_len - pos;
-            while (pos-- > 0)
+            while (p++ < list_len)
                 rrb(b);
         }
-		pa(a, b);
+
+        pa(a, b);
         list_len--;
     }
 }
 
+
 int	check_list_lenght(t_stack *a)
 {
 	int	size;
-
-	if (ft_lstsize(a) <= 100)
-		size = ft_lstsize(a) / 6;
-	if (ft_lstsize(a) <= 500)
-		size = ft_lstsize(a) / 12;
+	int list_size = ft_lstsize(a);
+	if (list_size <= 100)
+		size = list_size / 6;
+	else if (list_size <= 500)
+		size = list_size / 12;
 	else
-		size = ft_lstsize(a) / 20;
+		size = list_size / 20;
 	return (size);
 }
 
@@ -86,31 +84,29 @@ void	push_to_b(t_stack **a, t_stack **b, int *arr)
 {
 	int(size), (i), (list_size);
 
-	size = check_list_lenght(*a);
 	i = 0;
+	size = check_list_lenght(*a);
+	int s = size;
 	list_size = ft_lstsize(*a);
-	int s = list_size;
-	while (list_size != 0)
+	while (*a)
 	{
 		if ((*a)->nbr <= arr[i])
 		{
 			pb(a, b);
 			rb(b);
-			// if (i < size)
+			if (i < size)
 				i++;
-			// if (size < s )
+			if (size < list_size - 1)
 				size++;
-			list_size--;
 		}
 		else if ((*a)->nbr <= arr[size])
 		{
 			pb(a, b);
 			check_b(b);
-			// if (i < size)
+			if (i < size)
 				i++;
-			// if (size < s)
+			if (size < list_size - 1)
 				size++;
-			list_size--;
 		}
 		else
 			ra(a);

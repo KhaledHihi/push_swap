@@ -6,11 +6,11 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 12:49:17 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/14 15:37:46 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/20 05:04:56 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	sort_two(t_stack *a)
 {
@@ -81,7 +81,8 @@ void	sort_five(t_stack **a, t_stack **b)
 {
 	while (ft_lstsize(*a) > 3)
 	{
-		if ((*a)->nbr == find_min_(*a) || (*a)->nbr == find_sec_min_(*a, find_min_(*a)))
+		if ((*a)->nbr == find_min_(*a) || (*a)->nbr == find_sec_min_(*a,
+				find_min_(*a)))
 			pb(a, b);
 		else
 			ra(a);

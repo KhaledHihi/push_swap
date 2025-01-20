@@ -6,11 +6,11 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 18:03:48 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/01 18:05:24 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/20 05:05:49 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	ft_countw(char const *s1, char c)
 {

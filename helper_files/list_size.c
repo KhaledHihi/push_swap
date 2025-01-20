@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   list_size.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/02 11:02:56 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/13 23:02:54 by khhihi           ###   ########.fr       */
+/*   Created: 2025/01/12 16:43:33 by khhihi            #+#    #+#             */
+/*   Updated: 2025/01/20 05:05:41 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-long	ft_atoi(const char *str)
+int	ft_lstsize(t_stack *lst)
 {
-	int		i;
-	int		s;
-	long	r;
+	int	c;
 
-	i = 0;
-	s = 1;
-	r = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	c = 0;
+	while (lst)
 	{
-		if (str[i] == '-')
-			s *= -1;
-		i++;
+		c++;
+		lst = lst->next;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		r = r * 10 + (str[i] - 48);
-		i++;
-	}
-	return (s * r);
+	return (c);
 }

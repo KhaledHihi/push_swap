@@ -1,6 +1,6 @@
 NAME = push_swap
-SRC = main.c split.c create_node.c add_node_back.c ft_atoi.c print_node.c operations.c  \
-		ft_check.c list_size.c oper2.c sort_five_three.c sort_list.c push_swap.c\
+SRC = main.c helper_files/split.c helper_files/create_node.c helper_files/add_node_back.c helper_files/ft_atoi.c helper_files/print_node.c algo/operations.c  \
+		helper_files/ft_check.c helper_files/list_size.c algo/oper2.c algo/sort_five_three.c algo/sort_list.c algo/push_swap.c\
 
 OBJ = $(SRC:.c=.o)
 

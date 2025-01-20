@@ -6,11 +6,11 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 12:07:10 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/13 12:37:04 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/20 05:04:49 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	ra(t_stack **list)
 {
@@ -85,7 +85,6 @@ void	rrb(t_stack **list)
 	*list = move;
 	write(1, "rrb\n", 4);
 }
-
 
 void	rr(t_stack **a_list, t_stack **b_list)
 {

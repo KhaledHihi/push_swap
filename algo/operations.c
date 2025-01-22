@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 12:07:10 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/20 05:04:49 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/20 07:19:27 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	rra(t_stack **list)
 {
 	t_stack	*tmp;
 	t_stack	*move;
-	t_stack	*new_list;
 
 	if (!(*list) || !list)
 		return ;
@@ -70,7 +69,6 @@ void	rrb(t_stack **list)
 {
 	t_stack	*tmp;
 	t_stack	*move;
-	t_stack	*new_list;
 
 	if (!(*list) || !list)
 		return ;

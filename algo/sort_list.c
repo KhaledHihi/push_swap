@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 05:05:04 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/20 05:08:23 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/21 15:57:19 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int	max_index(t_stack **b)
 
 void	sort_int_tab(int *tab, unsigned int size)
 {
-	int	tmp;
-	int	i;
+	int				tmp;
+	unsigned int	i;
 
 	i = 0;
 	while (size - 1 > i)

@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 05:11:35 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/20 05:11:37 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/21 16:34:55 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_stack
 
 }					t_stack;
 
+char	*get_next_line(int fd);
 void	push_swap(t_stack **a, t_stack **b);
 int		max_index(t_stack **b);
 void	check_b(t_stack **b);

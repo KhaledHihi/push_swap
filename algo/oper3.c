@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   oper3.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 12:07:10 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/23 09:52:30 by khhihi           ###   ########.fr       */
+/*   Created: 2025/01/23 09:36:10 by khhihi            #+#    #+#             */
+/*   Updated: 2025/01/23 09:52:58 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ra(t_stack **list)
+void	r(t_stack **list)
 {
 	t_stack	*tmp;
 	t_stack	*move;
@@ -26,27 +26,38 @@ void	ra(t_stack **list)
 	while (move->next)
 		move = move->next;
 	move->next = tmp;
-	write(1, "ra\n", 3);
 }
 
-void	rb(t_stack **list)
+void	rr(t_stack **a, t_stack **b)
 {
-	t_stack	*tmp;
-	t_stack	*move;
-
-	if (!list || !(*list) || !((*list)->next))
-		return ;
-	tmp = *list;
-	*list = (*list)->next;
-	tmp->next = NULL;
-	move = *list;
-	while (move->next)
-		move = move->next;
-	move->next = tmp;
-	write(1, "rb\n", 3);
+	r(a);
+	r(b);
+	write(1, "rr\n", 3);
 }
 
-void	rra(t_stack **list)
+void	s(t_stack **list)
+{
+	t_stack	*first;
+	t_stack	*second;
+	int		tmp;
+
+	if (!list || !(*list))
+		return ;
+	first = *list;
+	second = (*list)->next;
+	tmp = first->nbr;
+	first->nbr = second->nbr;
+	second->nbr = tmp;
+}
+
+void	ss(t_stack **a, t_stack **b)
+{
+	s(a);
+	s(b);
+	write(1, "ss\n", 3);
+}
+
+void	rrrr(t_stack **list)
 {
 	t_stack	*tmp;
 	t_stack	*move;
@@ -62,31 +73,4 @@ void	rra(t_stack **list)
 	tmp->next = NULL;
 	move->next = *list;
 	*list = move;
-	write(1, "rra\n", 4);
-}
-
-void	rrb(t_stack **list)
-{
-	t_stack	*tmp;
-	t_stack	*move;
-
-	if (!(*list) || !list)
-		return ;
-	move = *list;
-	while (move->next)
-	{
-		tmp = move;
-		move = move->next;
-	}
-	tmp->next = NULL;
-	move->next = *list;
-	*list = move;
-	write(1, "rrb\n", 4);
-}
-
-void	rrr(t_stack **a, t_stack **b)
-{
-	rrrr(a);
-	rrrr(b);
-	write(1, "rrr\n", 3);
 }

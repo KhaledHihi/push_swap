@@ -6,19 +6,11 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 12:49:17 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/20 05:04:56 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/23 09:11:47 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void	sort_two(t_stack *a)
-{
-	if (!a || !(a->next))
-		return ;
-	if (a->nbr > a->next->nbr)
-		sa(&a);
-}
 
 int	find_min_(t_stack *stack)
 {

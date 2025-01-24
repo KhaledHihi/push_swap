@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/01 18:03:36 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/23 13:58:48 by khhihi           ###   ########.fr       */
+/*   Created: 2025/01/20 04:39:33 by khhihi            #+#    #+#             */
+/*   Updated: 2025/01/24 16:59:01 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int	make_list(char *args, t_stack **a)
 {
@@ -56,7 +56,68 @@ void	arguments(int ac, char *av[], t_stack **a)
 		return (ft_error(a), exit(0));
 }
 
-int	main(int ac, char *av[])
+int	is_sorted(t_stack *list)
+{
+	if (!list || !list->next)
+		return 0;
+
+	while(list->next)
+	{
+		if (list->nbr > list->next->nbr)
+			return (0);
+		list = list->next;
+	}
+	return (1);
+}
+int ft_strcmp(char *s1, char *s2)
+{
+	int i;
+
+	i = 0;
+	while(s1[i] && s1[i] == s2[i])
+		i++;
+	return s1[i] - s2[i];
+}
+void	applic_ops(char *op, t_stack **a, t_stack **b)
+{
+	if (ft_strcmp(op, "pa\n") == 0)
+		pa(a, b);
+	else if (ft_strcmp(op, "pb\n") == 0)
+		pb(a, b);
+	else if (ft_strcmp(op, "sa\n") == 0)
+		sa(a);
+	else if (ft_strcmp(op, "sb\n") == 0)
+		sb(b);
+	else if (ft_strcmp(op, "ra\n") == 0)
+		ra(a);
+	else if (ft_strcmp(op, "rb\n") == 0)
+		rb(b);
+	else if (ft_strcmp(op, "rra\n") == 0)
+		rra(a);
+	else if (ft_strcmp(op, "rrb\n") == 0)
+		rrb(b);
+	else if (ft_strcmp(op, "rr\n") == 0)
+		rr(a, b);
+	else if (ft_strcmp(op, "rrr\n") == 0)
+		rrr(a, b);
+	else if (ft_strcmp(op, "ss\n") == 0)
+		ss(a, b);
+	else
+		return (ft_error(a), ft_error(b), write(2, "Error\n", 6), exit(1));
+}
+void	read_out(t_stack **a,t_stack **b)
+{
+	char *op;
+
+	op = get_next_line(0);
+	while (op)
+	{
+		applic_ops(op, a, b);
+		op = get_next_line(0);
+	}
+	free(op);
+}
+int main(int ac, char *av[])
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -68,10 +129,11 @@ int	main(int ac, char *av[])
 	if (ac == 2 && av[1][0] == '\0')
 		return (1);
 	arguments(ac, av, &a);
-	if (ft_lstsize(a) <= 5)
-		sort_five(&a, &b);
+	read_out(&a, &b);
+	if (is_sorted(a) == 1)
+		write(1, "OK\n", 3);
 	else
-		push_swap(&a, &b);
-	// return (print_node(a), ft_error(&a), ft_error(&b), 0);
-	return (ft_error(&a), ft_error(&b), 0);
+		write(1, "KO\n", 3);
+	ft_error(&a);
+	ft_error(&b);
 }

@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 22:37:46 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/20 14:58:38 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/23 14:06:32 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	check_list_lenght(t_stack *a)
 
 	list_size = ft_lstsize(a);
 	if (list_size <= 100)
-		size = list_size / 4;
+		size = list_size / 5;
 	else if (list_size <= 500)
 		size = list_size / 12;
 	else

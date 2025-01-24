@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 12:07:10 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/23 09:52:30 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/24 16:22:50 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	ra(t_stack **list)
 	while (move->next)
 		move = move->next;
 	move->next = tmp;
-	write(1, "ra\n", 3);
 }
 
 void	rb(t_stack **list)
@@ -43,7 +42,6 @@ void	rb(t_stack **list)
 	while (move->next)
 		move = move->next;
 	move->next = tmp;
-	write(1, "rb\n", 3);
 }
 
 void	rra(t_stack **list)
@@ -62,7 +60,6 @@ void	rra(t_stack **list)
 	tmp->next = NULL;
 	move->next = *list;
 	*list = move;
-	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack **list)
@@ -81,12 +78,10 @@ void	rrb(t_stack **list)
 	tmp->next = NULL;
 	move->next = *list;
 	*list = move;
-	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack **a, t_stack **b)
 {
 	rrrr(a);
 	rrrr(b);
-	write(1, "rrr\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 04:39:33 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/24 16:59:01 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/24 21:12:17 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ int	make_list(char *args, t_stack **a)
 		return (-1);
 	value = ft_atoi(args);
 	if (value > 2147483647 || value < -2147483648)
-		return (-1);
+	{
+    	free(new_node);
+    	return (-1);
+	}
 	new_node = create_node(value);
 	add_node_back(a, new_node);
 	return (0);
@@ -78,7 +81,7 @@ int ft_strcmp(char *s1, char *s2)
 		i++;
 	return s1[i] - s2[i];
 }
-void	applic_ops(char *op, t_stack **a, t_stack **b)
+int	applic_ops(char *op, t_stack **a, t_stack **b)
 {
 	if (ft_strcmp(op, "pa\n") == 0)
 		pa(a, b);
@@ -103,8 +106,10 @@ void	applic_ops(char *op, t_stack **a, t_stack **b)
 	else if (ft_strcmp(op, "ss\n") == 0)
 		ss(a, b);
 	else
-		return (ft_error(a), ft_error(b), write(2, "Error\n", 6), exit(1));
+		return 1;
+	return 0;
 }
+
 void	read_out(t_stack **a,t_stack **b)
 {
 	char *op;
@@ -112,7 +117,15 @@ void	read_out(t_stack **a,t_stack **b)
 	op = get_next_line(0);
 	while (op)
 	{
-		applic_ops(op, a, b);
+		if (applic_ops(op, a, b) == 1)
+		{
+			free(op);
+			ft_error(a);
+			ft_error(b);
+			write(2, "Error\n", 6);
+			exit(0);
+		}
+		free(op);
 		op = get_next_line(0);
 	}
 	free(op);
@@ -134,6 +147,7 @@ int main(int ac, char *av[])
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
+
 	ft_error(&a);
 	ft_error(&b);
 }

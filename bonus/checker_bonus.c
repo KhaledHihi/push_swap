@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 04:39:33 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/24 21:12:17 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/24 23:54:25 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	make_list(char *args, t_stack **a)
 	t_stack	*new_node;
 	long	value;
 
+	new_node = NULL;
 	if (ft_check(args) == 0)
 		return (-1);
 	value = ft_atoi(args);
@@ -123,7 +124,7 @@ void	read_out(t_stack **a,t_stack **b)
 			ft_error(a);
 			ft_error(b);
 			write(2, "Error\n", 6);
-			exit(0);
+			break;
 		}
 		free(op);
 		op = get_next_line(0);

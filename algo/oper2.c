@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 12:01:54 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/20 05:04:31 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/25 08:31:19 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	sa(t_stack **list)
 	t_stack	*second;
 	int		tmp;
 
-	if (!list || !(*list))
+	if (!list || !(*list) || !(*list)->next)
 		return ;
 	first = *list;
 	second = (*list)->next;
@@ -34,7 +34,7 @@ void	sb(t_stack **list)
 	t_stack	*second;
 	int		tmp;
 
-	if (!list || !(*list))
+	if (!list || !(*list) || !(*list)->next)
 		return ;
 	first = *list;
 	second = (*list)->next;

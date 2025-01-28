@@ -6,18 +6,17 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 11:02:56 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/20 05:05:35 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/28 13:46:06 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap_bonus.h"
 
-long	ft_atoi(const char *str)
+long	ft_atoi(const char *str, t_stack **a, char **arr)
 {
-	int		i;
-	int		s;
 	long	r;
 
+	int (i), (s);
 	i = 0;
 	s = 1;
 	r = 0;
@@ -31,8 +30,12 @@ long	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		r = r * 10 + (str[i] - 48);
-		i++;
+		r = r * 10 + (str[i++] - 48);
+		if ((r * s) > 2147483647 || (r * s) < -2147483648)
+		{
+			ft_error(a);
+			return (ft_free_split(arr), write(2, "Error\n", 6), exit(1), 0);
+		}
 	}
 	return (s * r);
 }

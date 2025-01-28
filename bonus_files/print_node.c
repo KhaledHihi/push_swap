@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_size.c                                        :+:      :+:    :+:   */
+/*   print_node.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/12 16:43:33 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/20 05:05:41 by khhihi           ###   ########.fr       */
+/*   Created: 2025/01/03 09:30:58 by khhihi            #+#    #+#             */
+/*   Updated: 2025/01/28 13:34:34 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap_bonus.h"
 
-int	ft_lstsize(t_stack *lst)
+void	print_node(t_stack *lst)
 {
-	int	c;
-
-	c = 0;
+	if (!lst)
+		return ;
 	while (lst)
 	{
-		c++;
+		printf("%d\n", lst->nbr);
 		lst = lst->next;
 	}
-	return (c);
 }

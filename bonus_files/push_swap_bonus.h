@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 05:11:35 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/24 16:56:13 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/28 13:45:16 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ int		ft_check(char *str);
 void	ft_error(t_stack **stack);
 void	ft_free_split(char **split);
 char	**ft_split(char const *s, char c);
-long	ft_atoi(const char *str);
+long	ft_atoi(const char *str, t_stack **a, char **arr);
 t_stack	*create_node(long value);
+void	arguments(int ac, char *av[], t_stack **a);
 
 void	add_node_back(t_stack **node, t_stack *new1);
 int		ft_lstsize(t_stack *lst);

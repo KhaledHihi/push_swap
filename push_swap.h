@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 05:11:35 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/24 16:55:56 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/28 13:46:58 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ void	sort_three(t_stack **a);
 int		ft_duplicate(t_stack *lst);
 int		ft_check(char *str);
 void	ft_error(t_stack **stack);
+int		is_sorted(t_stack *list);
 void	ft_free_split(char **split);
 char	**ft_split(char const *s, char c);
-long	ft_atoi(const char *str);
+long	ft_atoi(const char *str, t_stack **a, char **arr);
 t_stack	*create_node(long value);
 void	add_node_back(t_stack **node, t_stack *new);
 int		ft_lstsize(t_stack *lst);

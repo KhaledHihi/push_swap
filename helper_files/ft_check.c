@@ -6,11 +6,24 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 10:03:24 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/20 05:14:56 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/28 13:26:05 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int	is_sorted(t_stack *list)
+{
+	if (!list || !list->next)
+		return (0);
+	while (list->next)
+	{
+		if (list->nbr > list->next->nbr)
+			return (0);
+		list = list->next;
+	}
+	return (1);
+}
 
 void	ft_free_split(char **split)
 {

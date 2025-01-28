@@ -6,11 +6,11 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 21:12:41 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/24 16:09:43 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/28 13:33:50 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap_bonus.h"
 
 void	add_node_back(t_stack **node, t_stack *new1)
 {

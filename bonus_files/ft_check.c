@@ -6,11 +6,11 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 10:03:24 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/20 05:14:56 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/28 13:34:10 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap_bonus.h"
 
 void	ft_free_split(char **split)
 {

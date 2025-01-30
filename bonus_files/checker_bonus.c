@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 04:39:33 by khhihi            #+#    #+#             */
-/*   Updated: 2025/01/28 13:50:00 by khhihi           ###   ########.fr       */
+/*   Updated: 2025/01/29 12:53:20 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	main(int ac, char *av[])
 		return (write(2, "Error\n", 6), 1);
 	arguments(ac, av, &a);
 	read_out(&a, &b);
-	if (is_sorted(a) == 1)
+	if (is_sorted(a) == 1 && ft_lstsize(b) == 0)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);

@@ -98,6 +98,8 @@ int	main(int ac, char *av[])
 		return (write(2, "Error\n", 6), 1);
 	arguments(ac, av, &a);
 	read_out(&a, &b);
+	if (ft_lstsize(a) == 1 && ft_lstsize(b) == 0)
+		return (ft_error(&a), ft_error(&b), write(1, "OK\n", 3), 0);
 	if (is_sorted(a) == 1 && ft_lstsize(b) == 0)
 		write(1, "OK\n", 3);
 	else

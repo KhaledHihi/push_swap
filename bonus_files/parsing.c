@@ -56,6 +56,4 @@ void	arguments(int ac, char *av[], t_stack **a)
 	}
 	if (ft_duplicate(*a) == 0)
 		return (ft_error(a), exit(1));
-	if (ft_lstsize(*a) == 1)
-		return (ft_error(a), exit(0));
 }
